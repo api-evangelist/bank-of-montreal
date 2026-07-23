@@ -1,0 +1,46 @@
+generated: '2026-07-23'
+method: derived
+source: >-
+  https://api.bmo.com/.well-known/openid-configuration +
+  https://developer.bmo.com/api/commercial/ (published API descriptions)
+notes: >-
+  Standards conformance derived from BMO's live OIDC discovery document and the
+  published commercial API descriptions. No downloadable OpenAPI is public (the
+  API Explorer is partner-gated), so spec-level assertions (RFC 9457 error
+  envelope, pagination) cannot be confirmed and are left unasserted rather than
+  guessed. No published SOC 2 / ISO 27001 / PCI DSS certification page was
+  reachable via anonymous search, so no `Compliance` claim is emitted here.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    BMO Authorize API issues OAuth 2.0 access tokens; live authorization/token
+    endpoints exposed at api.bmo.com/aac/sps/oauth/oauth20/*
+- id: oidc
+  conforms: true
+  evidence: >-
+    anonymous OIDC discovery document at
+    https://api.bmo.com/.well-known/openid-configuration (issuer, jwks,
+    userinfo, introspect, revoke; RS256 id tokens)
+- id: rfc7662-token-introspection
+  conforms: true
+  evidence: introspect_endpoint published in OIDC discovery
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint published in OIDC discovery
+- id: rfc7523-jwt-bearer
+  conforms: true
+  evidence: >-
+    grant_types_supported includes urn:ietf:params:oauth:grant-type:jwt-bearer
+- id: rfc9457-problem-details
+  conforms: unknown
+  evidence: error envelope not observable (specs partner-gated)
+- id: fapi
+  conforms: unknown
+  evidence: not asserted by BMO in public materials
+- id: fdx
+  conforms: false
+  evidence: >-
+    BMO publishes a commercial treasury/payments API program, not an FDX
+    consumer-data-sharing API; Canada's Consumer-Driven Banking framework is
+    legislated (Budget 2024) but not yet operational

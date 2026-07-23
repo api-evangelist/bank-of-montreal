@@ -44,6 +44,7 @@ apis:
     histories that can replace BAI files and other settlement reports — surfaced
     directly inside accounting and treasury-management systems.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Account Information
   - Balances
@@ -60,6 +61,7 @@ apis:
     failed or misdirected payments. Selected fields shared via the Account
     Validation API must be protected using the Encryption API.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Account Validation
   - Payments
@@ -76,6 +78,7 @@ apis:
     Online Banking for Business accounts, so clients can pull supporting item
     images without signing in to online banking.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Image Retrieval
   - Cheque Images
@@ -94,6 +97,7 @@ apis:
     as part of BMO's North American embedded-finance payments program (Dec 2025)
     for ERP, treasury, and customer-facing platforms.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Payments
   - Domestic Payments
@@ -112,6 +116,7 @@ apis:
     call the Account Information, Account Validation, Image Retrieval, and
     Payment APIs across sandbox, pre-production, and production environments.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Authentication
   - OAuth 2.0
@@ -128,6 +133,7 @@ apis:
     Encryption is required for all Payment APIs as well as for fields shared via
     the Account Validation API.
   humanURL: https://developer.bmo.com/api/commercial/product
+  baseURL: https://api.bmo.com
   tags:
   - Encryption
   - Security
@@ -138,6 +144,26 @@ apis:
   - type: APIReference
     url: https://developer.bmo.com/api/commercial/product
 common:
+- type: DomainSecurity
+  url: security/bank-of-montreal-domain-security.yml
+- type: WellKnown
+  url: well-known/bank-of-montreal-well-known.yml
+- type: Authentication
+  url: authentication/bank-of-montreal-authentication.yml
+- type: Conformance
+  url: conformance/bank-of-montreal-conformance.yml
+- type: VulnerabilityDisclosure
+  url: security/bank-of-montreal-vulnerability-disclosure.yml
+- type: Security
+  url: https://hackerone.com/bmo
+- type: Sandbox
+  url: sandbox/bank-of-montreal-sandbox.yml
+- type: LLMsTxt
+  url: llms/bank-of-montreal-llms.txt
+- type: APIReference
+  url: https://developer.bmo.com/api/commercial/catalogue
+- type: GettingStarted
+  url: https://developer.bmo.com/api/commercial/getting-started
 - type: Website
   url: https://www.bmo.com/
 - type: DeveloperPortal

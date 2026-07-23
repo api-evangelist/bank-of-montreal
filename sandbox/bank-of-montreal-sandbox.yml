@@ -1,0 +1,30 @@
+generated: '2026-07-23'
+method: searched
+source: https://developer.bmo.com/api/commercial/getting-started
+docs: https://developer.bmo.com/api/commercial/
+notes: >-
+  BMO's commercial developer portal publishes a free sandbox where developers
+  experiment against simulated (non-production) test data with no fees, plus a
+  pre-production environment that mirrors production before go-live. Concrete
+  magic test values (test account numbers, sample tokens) are exposed inside the
+  partner-gated API Explorer once an organization account is approved, so they
+  are not reproduced here (no fabrication). Environments and their purpose are
+  published on the portal and captured below.
+environments:
+- name: sandbox
+  purpose: >-
+    Free, self-serve experimentation against simulated test data; no fees, no
+    real accounts. Used to build and test API calls before requesting
+    production access.
+  test_data: simulated / synthetic
+  cost: free
+- name: pre-production
+  purpose: >-
+    Higher-fidelity environment to validate an integration against
+    production-like conditions before promotion to production.
+- name: production
+  purpose: Live environment against real BMO Online Banking for Business accounts.
+access: >-
+  Sandbox is available after registering on developer.bmo.com; production and
+  pre-production require an approved BMO organization account and OAuth 2.0
+  client credentials issued via the Authorize API.

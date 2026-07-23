@@ -1,0 +1,41 @@
+# BMO Financial Group
+
+> BMO Financial Group (Bank of Montreal) is one of Canada's Big Six banks and a Schedule I domestic chartered bank, founded in Montreal in 1817 as Canada's oldest bank. It runs a first-party, bilingual (EN/FR) commercial developer portal at developer.bmo.com for Online Banking for Business customers, publishing OAuth 2.0-secured Account Information, Account Validation, Image Retrieval, Payment (domestic and international / embedded finance), Authorize, and Encryption APIs on an IBM API Connect platform with a free sandbox and pre-production environment. Documentation and OpenAPI / API Explorer specs are partner-gated behind an approved organization account.
+
+## APIs
+
+- [BMO Account Information API](https://developer.bmo.com/api/commercial/product): Real-time balances (current, day/month/year-end) and transaction histories that can replace BAI files inside accounting and treasury systems.
+- [BMO Account Validation API](https://developer.bmo.com/api/commercial/product): Validates third-party accounts before a transaction is created to reduce failed or misdirected payments; protected fields require the Encryption API.
+- [BMO Image Retrieval API](https://developer.bmo.com/api/commercial/product): Retrieves images of deposited cheques and other items without signing in to online banking.
+- [BMO Payment API](https://developer.bmo.com/api/commercial/product): Sends and collects domestic and international payments with pre-payment account validation and real-time status updates (API, email, or text); part of BMO's North American embedded-finance payments program.
+- [BMO Authorize API](https://developer.bmo.com/api/commercial/product): Authenticates and authorizes applications via OAuth 2.0, issuing the access tokens required to call the other APIs across sandbox, pre-production, and production.
+- [BMO Encryption API](https://developer.bmo.com/api/commercial/product): Encrypts all requests to and responses from BMO APIs; mandatory for the Payment APIs and for fields shared via Account Validation.
+
+## Authentication
+
+- [OIDC discovery (live)](https://api.bmo.com/.well-known/openid-configuration): OAuth 2.0 / OpenID Connect on IBM Security Verify. Authorization `https://api.bmo.com/aac/sps/oauth/oauth20/authorize`, token `.../token`, plus userinfo, jwks, introspection, and revocation endpoints; RS256 id tokens; authorization_code and jwt-bearer grants.
+- [Authentication profile](authentication/bank-of-montreal-authentication.yml)
+
+## Docs
+
+- [Developer Portal](https://developer.bmo.com/api/commercial/)
+- [API Catalogue](https://developer.bmo.com/api/commercial/catalogue)
+- [Getting Started](https://developer.bmo.com/api/commercial/getting-started)
+- [FAQ](https://developer.bmo.com/api/commercial/faq)
+- [Help](https://developer.bmo.com/api/commercial/help)
+- [Contact / Sign up](https://developer.bmo.com/api/commercial/contact-us)
+- [Terms of Use](https://developer.bmo.com/api/commercial/terms-of-use)
+- [Privacy](https://developer.bmo.com/api/commercial/privacy)
+
+## Security
+
+- [Responsible Disclosure (HackerOne)](https://hackerone.com/bmo)
+- [BMO Responsible Disclosure Program](https://www.bmo.com/main/personal/ways-to-bank/security-centre/responsible-disclosure/) — contact Privacy.Matters@bmo.com
+- [Sandbox / test environments](sandbox/bank-of-montreal-sandbox.yml)
+- [Conformance](conformance/bank-of-montreal-conformance.yml)
+- [Domain security](security/bank-of-montreal-domain-security.yml)
+
+## Notes
+
+- Access is partner-gated: an approved BMO Online Banking for Business organization account is required to view per-endpoint documentation, the interactive API Explorer, and OpenAPI specs. No OpenAPI/Swagger is publicly downloadable.
+- Canada has no operational open-banking mandate yet; the federal Consumer-Driven Banking framework (Budget 2024 / FES 2024, FCAC-overseen) is legislated but not live. BMO's public program is a commercial treasury/payments offering, not consumer open banking.

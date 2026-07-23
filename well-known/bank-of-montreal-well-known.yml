@@ -1,0 +1,37 @@
+generated: '2026-07-23'
+method: searched
+source: live probes of /.well-known/ on BMO API + developer + corporate hosts
+notes: >-
+  developer.bmo.com and www.bmo.com return HTTP 403 to non-browser clients
+  (Akamai/WAF) for /.well-known/ paths. api.bmo.com (BMO's IBM Security Verify /
+  API Connect gateway, "aac" access-control runtime) serves an anonymous OIDC
+  discovery document at /.well-known/openid-configuration; its sibling
+  oauth-authorization-server, oauth-protected-resource, security.txt, and
+  api-catalog paths return 403.
+hosts:
+- host: https://api.bmo.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: bank-of-montreal-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/oauth-protected-resource
+    status: 403
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+- host: https://developer.bmo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403
+- host: https://bmo.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+    redirect: https://www.bmo.com/.well-known/security.txt
