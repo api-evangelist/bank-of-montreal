@@ -1,0 +1,161 @@
+aid: bank-of-montreal
+url: https://raw.githubusercontent.com/api-evangelist/bank-of-montreal/refs/heads/main/apis.yml
+name: BMO Financial Group
+kind: company
+description: >-
+  BMO Financial Group (Bank of Montreal) is one of Canada's Big Six banks and a
+  Schedule I domestic chartered bank, founded in Montreal in 1817 as Canada's
+  oldest bank. It is a diversified North American financial-services provider
+  serving personal, commercial, wealth, and capital-markets clients across
+  Canada and the United States (where it operates as the separately chartered
+  BMO Bank N.A.). BMO runs a first-party, bilingual (EN/FR) commercial developer
+  portal at developer.bmo.com for Online Banking for Business customers,
+  publishing OAuth 2.0-secured Account Information, Account Validation, Image
+  Retrieval, Payment (domestic and international / embedded finance), Authorize,
+  and Encryption APIs on an IBM API Connect platform with a free sandbox and
+  pre-production environment. Documentation and OpenAPI/API Explorer specs sit
+  behind an approved organization account, so the surface is partner-gated
+  rather than openly downloadable. Canada has no operational open-banking
+  mandate yet — the federal Consumer-Driven Banking framework (Budget 2024 /
+  Fall Economic Statement 2024, overseen by the FCAC) is legislated but not live
+  — so consumer data access today remains voluntary and largely aggregator-based
+  (Flinks, Plaid), while BMO's own public program is a commercial treasury/
+  payments API offering.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial Services
+- Banking
+- Canada
+- Big Six
+- Commercial Banking
+- Payments
+- Treasury
+- Open Banking
+- Consumer-Driven Banking
+created: '2026-07-23'
+modified: '2026-07-23'
+specificationVersion: '0.19'
+apis:
+- aid: bank-of-montreal:bmo-account-information-api
+  name: BMO Account Information API
+  description: >-
+    Real-time access to BMO Online Banking for Business account data — current
+    balances; day-end, month-end and year-end balances; and transaction
+    histories that can replace BAI files and other settlement reports — surfaced
+    directly inside accounting and treasury-management systems.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Account Information
+  - Balances
+  - Transactions
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+- aid: bank-of-montreal:bmo-account-validation-api
+  name: BMO Account Validation API
+  description: >-
+    Validates third-party accounts before a transaction is created, reducing
+    failed or misdirected payments. Selected fields shared via the Account
+    Validation API must be protected using the Encryption API.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Account Validation
+  - Payments
+  - Verification
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+- aid: bank-of-montreal:bmo-image-retrieval-api
+  name: BMO Image Retrieval API
+  description: >-
+    Retrieves images of deposited cheques and other items associated with BMO
+    Online Banking for Business accounts, so clients can pull supporting item
+    images without signing in to online banking.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Image Retrieval
+  - Cheque Images
+  - Reporting
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+- aid: bank-of-montreal:bmo-payment-api
+  name: BMO Payment API
+  description: >-
+    Sends and collects domestic and international payments directly from a
+    client's application, with account validation before payment creation and
+    real-time payment-status updates delivered by API, email, or text. Launched
+    as part of BMO's North American embedded-finance payments program (Dec 2025)
+    for ERP, treasury, and customer-facing platforms.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Payments
+  - Domestic Payments
+  - International Payments
+  - Embedded Finance
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+- aid: bank-of-montreal:bmo-authorize-api
+  name: BMO Authorize API
+  description: >-
+    Authenticates and authorizes applications to access BMO APIs using the
+    industry-standard OAuth 2.0 framework, issuing the access tokens required to
+    call the Account Information, Account Validation, Image Retrieval, and
+    Payment APIs across sandbox, pre-production, and production environments.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Authentication
+  - OAuth 2.0
+  - Authorization
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+- aid: bank-of-montreal:bmo-encryption-api
+  name: BMO Encryption API
+  description: >-
+    Protects data by encrypting all requests to and responses from BMO APIs.
+    Encryption is required for all Payment APIs as well as for fields shared via
+    the Account Validation API.
+  humanURL: https://developer.bmo.com/api/commercial/product
+  tags:
+  - Encryption
+  - Security
+  - Payments
+  properties:
+  - type: Documentation
+    url: https://developer.bmo.com/api/commercial/faq
+  - type: APIReference
+    url: https://developer.bmo.com/api/commercial/product
+common:
+- type: Website
+  url: https://www.bmo.com/
+- type: DeveloperPortal
+  url: https://developer.bmo.com/api/commercial/
+- type: Documentation
+  url: https://developer.bmo.com/api/commercial/getting-started
+- type: SignUp
+  url: https://developer.bmo.com/api/commercial/contact-us
+- type: Support
+  url: https://developer.bmo.com/api/commercial/help
+- type: TermsOfService
+  url: https://developer.bmo.com/api/commercial/terms-of-use
+- type: PrivacyPolicy
+  url: https://developer.bmo.com/api/commercial/privacy
+- type: Blog
+  url: https://newsroom.bmo.com/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bmo/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

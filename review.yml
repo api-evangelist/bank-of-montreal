@@ -1,0 +1,128 @@
+aid: bank-of-montreal
+name: BMO Financial Group
+review:
+  question: >-
+    Does the Canadian BMO Financial Group (Bank of Montreal) expose a
+    first-party public developer API surface, with downloadable specs, and what
+    is its open-finance / Consumer-Driven Banking posture?
+  answer: true
+  date: '2026-07-23'
+  reviewer: API Evangelist
+findings:
+  summary: >-
+    BMO Financial Group runs a real, first-party, bilingual (EN/FR) commercial
+    developer portal at https://developer.bmo.com/api/commercial/ (HTTP 200),
+    built on IBM API Connect (Drupal + ibm_apim), for its Online Banking for
+    Business customers. It documents six OAuth 2.0-secured API products —
+    Account Information, Account Validation, Image Retrieval, Payment (domestic
+    and international / embedded finance), Authorize, and Encryption. Access is
+    partner-gated: an organization account must be applied for and approved, and
+    only then does the portal expose per-endpoint documentation and an
+    interactive API Explorer with sample requests, sandbox credentials, and
+    pre-production/production request flows. No OpenAPI/Swagger is publicly
+    downloadable, so no spec was harvested. This is the CANADIAN parent (BMO
+    Financial Group / Bank of Montreal, Schedule I chartered bank); the US arm
+    BMO Bank N.A. is a separate entity and separate repo. BMO does not publish
+    an FDX consumer-data-sharing API or a stated 1033/Consumer-Driven-Banking
+    endpoint — Canada's federal Consumer-Driven Banking framework (Budget 2024 /
+    Fall Economic Statement 2024, FCAC-overseen) is legislated but not yet
+    operational, so consumer data access remains voluntary and largely
+    aggregator-based (Flinks, Plaid). BMO's own public program is a commercial
+    treasury/payments offering, not consumer open banking.
+  posture:
+    firstPartyDeveloperPortal: true
+    developerPortalURL: https://developer.bmo.com/api/commercial/
+    developerPortalHTTPStatus: 200
+    portalPlatform: IBM API Connect (Drupal 10 + ibm_apim module)
+    bilingual: true
+    canadianParentEntity: true
+    usArmSeparate: BMO Bank N.A. (separate US-chartered entity / separate repo)
+    downloadableOpenAPI: false
+    specProvenance: >-
+      No public OpenAPI/Swagger. Documentation and API Explorer are behind an
+      approved organization account; API product/catalogue pages render
+      client-side via IBM API Connect and expose no anonymous spec download.
+    authModel:
+      - OAuth 2.0 (Authorize API issues access tokens)
+      - Mandatory payload encryption (Encryption API) for Payment and Account
+        Validation calls
+    environments:
+      - Sandbox (free)
+      - Pre-Production (free, request access)
+      - Production (request access; pricing on contact)
+    audience: Online Banking for Business (commercial / corporate treasury) clients
+    fdxParticipation: false
+    section1033Posture: >-
+      Not applicable — US 1033 is a US-jurisdiction rule and does not govern this
+      Canadian entity. No FDX consumer data-access API is published.
+    consumerDrivenBanking: >-
+      Canada's Consumer-Driven Banking framework is legislated (Budget 2024 /
+      Fall Economic Statement 2024, overseen by the Financial Consumer Agency of
+      Canada) but NOT yet operational; BMO publishes no CDB/open-banking consumer
+      data endpoint.
+    aggregatorReality: >-
+      Consumer account-data access to BMO today is largely aggregator/
+      screen-scraping based via Flinks (National Bank-owned), Plaid, MX, or Salt
+      Edge — not a first-party consumer API.
+    rails: >-
+      BMO is a Payments Canada member and Interac participant; its Payment API
+      covers domestic and international payments and real-time status updates,
+      but no dedicated public Interac / Real-Time Rail (RTR) API is separately
+      documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: true
+      note: >-
+        All BMO commercial APIs are HTTPS REST. Base URLs are issued per
+        environment (sandbox / pre-production / production) after account
+        approval and are not published anonymously.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: >-
+        Payment status updates can be pushed (real-time notifications by API,
+        email, or text) per the portal FAQ; delivery details are behind login.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket surface is documented on the public portal.
+sources:
+  - url: https://developer.bmo.com/api/commercial/
+    type: DeveloperPortal
+    httpStatus: 200
+    note: BMO commercial API developer portal landing (IBM API Connect); root developer.bmo.com redirects here.
+  - url: https://developer.bmo.com/api/commercial/faq
+    type: Documentation
+    httpStatus: 200
+    note: >-
+      FAQ / Help Center enumerating API products (Authorize, Account
+      Information, Image Retrieval, Account Validation, Payment) plus sandbox /
+      pre-production / production onboarding, OAuth 2.0, and encryption.
+  - url: https://developer.bmo.com/api/commercial/product
+    type: APIReference
+    httpStatus: 200
+    note: API Products catalogue (client-side rendered; detail behind approved account).
+  - url: https://developer.bmo.com/api/commercial/getting-started
+    type: Documentation
+    httpStatus: 200
+  - url: https://developer.bmo.com/api/commercial/terms-of-use
+    type: TermsOfService
+    httpStatus: 200
+  - url: https://developer.bmo.com/api/commercial/privacy
+    type: PrivacyPolicy
+    httpStatus: 200
+  - url: https://newsroom.bmo.com/2025-12-02-BMO-Launches-Payment-APIs-To-Power-Embedded-Finance-Experiences-Across-North-America
+    type: Blog
+    httpStatus: 200
+    note: >-
+      Dec 2, 2025 announcement — BMO Commercial Bank Treasury and Payment
+      Solutions launches Payment APIs for embedded finance across North America
+      (Toronto/Chicago); confirms Canadian parent and production-grade sandbox.
+actions:
+  openapiHarvested: false
+  reason: >-
+    No publicly downloadable OpenAPI/Swagger exists; specs and the interactive
+    API Explorer are gated behind an approved organization account. Identity and
+    the documented (but partner-gated) API surface were captured; nothing was
+    fabricated and no spec was placed in openapi/.
