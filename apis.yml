@@ -34,7 +34,7 @@ tags:
 - Consumer-Driven Banking
 created: '2026-07-23'
 modified: '2026-07-23'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: bank-of-montreal:bmo-account-information-api
   name: BMO Account Information API
