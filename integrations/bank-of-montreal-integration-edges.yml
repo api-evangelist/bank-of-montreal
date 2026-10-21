@@ -13,6 +13,13 @@ checked:
 - https://registry.financialdataexchange.org/
 - https://zapier.com/apps/bank-of-montreal/integrations
 - https://zapier.com/apps/bmo-financial-group/integrations
+- https://data.gov.au/data/dataset/asic-credit-licensees
+- https://files.consumerfinance.gov/f/documents/CFPB_Institutions_06302026_Dist.xlsx
+- https://open.canada.ca/data/en/dataset/b27ec3ef-7338-4e76-a6fd-128339a92df5
+- https://register.fca.org.uk/s/
+- https://www.canada.ca/en/financial-consumer-agency.html
+- https://www.consumerfinance.gov/compliance/supervision-examinations/institutions/
+- https://www.nmlsconsumeraccess.org/
 summary: null
 marketplace_apps: []
 edges:
@@ -40,4 +47,33 @@ edges:
     detected: '2026-10-14'
   detected_by: sweep-fdx.py
   first_seen: '2026-10-14'
+- partner_name: OSFI federally regulated financial institutions (banks, trust and loan companies)
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://open.canada.ca/data/dataset/b27ec3ef-7338-4e76-a6fd-128339a92df5/resource/945045fa-2de0-47d4-aad2-144d69467824/download/who_we_regulate_fi_eng.csv
+  category: Canadian federally regulated deposit-taking lender
+  contract_reference:
+    register: OSFI federally regulated financial institutions (banks, trust and loan companies)
+    spec_file: null
+    standard: null
+    role: supervised-institution
+    registrations:
+    - registered_name: Bank of Montreal
+      licences:
+      - Domestic Banks
+      register_country: CA
+      matched_domain: bmo.com
+      matched_by: domain+name-among-holders
+      identity: wikidata Q806693 'Bank of Montreal' P856 http://www.bmo.com/
+    signal_note: 'participation only: a regulator licence / supervision listing; no API conformance is published
+      by this register'
+    detected_by: sweep-consumer-lending-licensing.py
+    detected: '2026-10-21'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-consumer-lending-licensing.py
+  first_seen: '2026-10-21'
 templates: []
