@@ -116,3 +116,37 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: bank-of-montreal-payments-canada-members-and-payment-system-participants
+  label: Payments Canada members and payment system participants
+  partner_name: Payments Canada members and payment system participants
+  category: Payments Canada membership / ACSS / Lynx participation
+  type: register
+  channel: regulator-register
+  evidence: https://www.payments.ca/payment-resources/directories
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Payments Canada members and payment system participants
+    spec_file: null
+    standard: null
+    role: payment-system-member
+    registrations:
+    - registered_name: Bank of Montreal
+      register_status: member
+      register_country: CA
+      register_id: '001'
+      matched_domain: bmo.com
+      matched_by: domain+name-among-holders
+      licences:
+      - Payments Canada member
+      - ACSS (retail batch) direct / group clearer
+      - Lynx (high-value) participant
+      member_class: Banks
+      identity: wikidata Q806693 'Bank of Montreal' P856 http://www.bmo.com/
+    signal_note: 'participation only: a regulator registration / payment-system membership; no API conformance is
+      published by this register'
+    detected_by: sweep-canada-rpaa-psp-registry.py
+    detected: '2026-10-22'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null

@@ -24,6 +24,11 @@ checked:
 - https://vpr.hkma.gov.hk/eng/regulatory-resources/registers/register-of-ais-and-lros/
 - https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-svf-licensees/
 - https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions
+- https://www.bankofcanada.ca/core-functions/retail-payments-supervision/psp-registry/
+- https://www.bankofcanada.ca/rps-api/cif2/accounts/list
+- https://www.payments.ca/payment-resources/directories?field_directory_type=10
+- https://www.payments.ca/payment-resources/directories?field_directory_type=13
+- https://www.payments.ca/payment-resources/directories?field_directory_type=14
 summary: null
 marketplace_apps: []
 edges:
@@ -137,5 +142,39 @@ edges:
     detected_by: sweep-hong-kong-sfc-licensed.py
     detected: '2026-10-22'
   detected_by: sweep-hong-kong-sfc-licensed.py
+  first_seen: '2026-10-22'
+- partner_name: Payments Canada members and payment system participants
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.payments.ca/payment-resources/directories
+  category: Payments Canada membership / ACSS / Lynx participation
+  contract_reference:
+    register: Payments Canada members and payment system participants
+    spec_file: null
+    standard: null
+    role: payment-system-member
+    registrations:
+    - registered_name: Bank of Montreal
+      register_status: member
+      register_country: CA
+      register_id: '001'
+      matched_domain: bmo.com
+      matched_by: domain+name-among-holders
+      licences:
+      - Payments Canada member
+      - ACSS (retail batch) direct / group clearer
+      - Lynx (high-value) participant
+      member_class: Banks
+      identity: wikidata Q806693 'Bank of Montreal' P856 http://www.bmo.com/
+    signal_note: 'participation only: a regulator registration / payment-system membership; no API conformance is
+      published by this register'
+    detected_by: sweep-canada-rpaa-psp-registry.py
+    detected: '2026-10-22'
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  detected_by: sweep-canada-rpaa-psp-registry.py
   first_seen: '2026-10-22'
 templates: []
