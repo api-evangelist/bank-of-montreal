@@ -20,6 +20,10 @@ checked:
 - https://www.canada.ca/en/financial-consumer-agency.html
 - https://www.consumerfinance.gov/compliance/supervision-examinations/institutions/
 - https://www.nmlsconsumeraccess.org/
+- https://apps.sfc.hk/publicregWeb/searchByRa
+- https://vpr.hkma.gov.hk/eng/regulatory-resources/registers/register-of-ais-and-lros/
+- https://www.hkma.gov.hk/eng/regulatory-resources/registers/register-of-svf-licensees/
+- https://www.sfc.hk/en/Regulatory-functions/Intermediaries/Licensing/Register-of-licensed-persons-and-registered-institutions
 summary: null
 marketplace_apps: []
 edges:
@@ -76,4 +80,62 @@ edges:
     identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
   detected_by: sweep-consumer-lending-licensing.py
   first_seen: '2026-10-21'
+- partner_name: HKMA Register of Authorized Institutions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://vpr.hkma.gov.hk/eng/regulatory-resources/registers/register-of-ais-and-lros/
+  category: banking (Hong Kong)
+  contract_reference:
+    register: HKMA Register of Authorized Institutions
+    spec_file: null
+    standard: HKMA authorization (Banking Ordinance, Cap. 155), Hong Kong
+    role: licensed-participant
+    registrations:
+    - registered_name: BANK OF MONTREAL
+      licences:
+      - Licensed Bank (Banking Ordinance, Cap. 155)
+      matched_domain: bmo.com
+      matched_by: domain+name-among-holders
+      evidence: https://www.hkma.gov.hk/media/eng/doc/key-functions/banking-stability/banking-policy-and-supervision/addr.xls
+      incorporated: CANADA
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-hong-kong-sfc-licensed.py
+    detected: '2026-10-22'
+  detected_by: sweep-hong-kong-sfc-licensed.py
+  first_seen: '2026-10-22'
+- partner_name: SFC Public Register of Licensed Persons and Registered Institutions
+  partner: null
+  partner_match: register
+  type: register
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://apps.sfc.hk/publicregWeb/searchByRa
+  category: securities / virtual assets (Hong Kong)
+  contract_reference:
+    register: SFC Public Register of Licensed Persons and Registered Institutions
+    spec_file: null
+    standard: SFC licensing (Securities and Futures Ordinance, Cap. 571; AMLO Cap. 615 for VATPs), Hong Kong
+    role: licensed-participant
+    registrations:
+    - registered_name: Bank of Montreal
+      licences:
+      - Type 1 dealing in securities
+      - Type 4 advising on securities
+      matched_domain: bmo.com
+      matched_by: domain+name-among-holders
+      evidence: https://apps.sfc.hk/publicregWeb/ri/AAK809/addresses
+      kind: registered institution
+      register_id: AAK809
+    signal_note: 'participation only: a regulator licence / registration; no API conformance is published by this
+      register'
+    detected_by: sweep-hong-kong-sfc-licensed.py
+    detected: '2026-10-22'
+  detected_by: sweep-hong-kong-sfc-licensed.py
+  first_seen: '2026-10-22'
 templates: []
